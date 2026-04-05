@@ -207,9 +207,9 @@
       
 <!-- LOTTO432 (ผ่านหน้า redirect เพื่อ preload DNS และแสดงข้อความ) -->
       <center><img src="https://duhuay.com/wp-content/uploads/IMG_0458.png" alt="Lotto432" class="logo">
-      <div class="section-title">Lotto432 .| 🟢 สถานะ:ปกติ  </div>
+      <div class="section-title">Lotto432 | 🟢 สถานะ: ปกติ </div>
       <p>บริการด้าน หวยออนไลน์ ครบวงจรมีทุกหวย | เกมคาสิโน กีฬาทุกค่าย ทุกลีคดัง เปิดบริการมายาวนาน กว่า5ปี และเป็นที่รู้จัก lotto432 จึงได้รับความไว้วางใจ ช่วยเหลือ24ชม.</p>
-     <a class="button" href="https://sgspec.github.io/redirect-to-huay-online/redirect432.html" style="background: #3300FF;">
+     <a class="button" href="https://duhuay.com/redirect432.html" style="background: #3300FF;">
   ⭐️ เข้าสู่เว็บไซต์ : Lotto432 
 </a>
 
@@ -220,7 +220,7 @@
       <!-- WORLDLOTTO (ลิงก์ตรง) -->
       <center><img src="https://duhuay.com/wp-content/uploads/IMG_1056.png" alt="Worldlotto" class="logo">
       <div class="section-title">Worldlotto / CJworld | 🟢 สถานะ:ปกติ  </div>
-      <p>หวยออนไลน์ ทุกประเภท ครบวงจร | เกมคาสิโน | Worldlotto ให้บริการมานานกว่า3ปี ได้รับความไว้วางใจ ซัพพอร์ต 24 ชม. </p>
+      <p>หวยออนไลน์ ทุกประเภท ครบวงจร | เกมคาสิโน กีฬา | Worldlotto ให้บริการมานานกว่า4ปี ได้รับความไว้วางใจ ซัพพอร์ต 24 ชม. </p>
       <a class="button" href="https://ok999.link/wordlotto">⭐️ เข้าสู่เว็บไซต์ : Worldlotto </a>
 
       <hr style="height: 2px; background-color: red; border: none; margin: 30px 0;">
@@ -509,8 +509,245 @@
 <!-- /wp:spacer -->
 
 
-   
 
 
 
+
+<style>
+#linePopupBtn {
+  position: fixed;
+
+  /* 🔧 ตำแหน่งเดิม */
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: green;
+  color: #fff;
+  padding: 10px 8px;
+  border-radius: 8px 0 0 8px;
+  font-size: 13px;
+  cursor: pointer;
+  z-index: 9999;
+
+  /* ❌ เอาของเก่าออก */
+  writing-mode: initial;
+  text-orientation: initial;
+
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* 🔥 ทำให้เรียงลง */
+#linePopupBtn span {
+  display: block;
+}
+
+/* Popup (ของเดิมคุณ) */
+#linePopupBox {
+  display: none;
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  background: #fff;
+  color: #000;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  padding: 20px;
+  z-index: 99999;
+  font-family: sans-serif;
+}
+
+#linePopupBox h3 {
+  margin-top: 0;
+  color: #06c755;
+}
+
+.copy-box {
+  display: flex;
+  margin-top: 15px;
+}
+
+.copy-box input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px 0 0 6px;
+  font-size: 14px;
+}
+
+.copy-box button {
+  padding: 8px 12px;
+  border: none;
+  background: #06c755;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 0 6px 6px 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #999;
+}
+
+/* มือถือ */
+@media(max-width: 480px){
+  #linePopupBox {
+    width: 90%;
+    right: 5%;
+  }
+}
+
+#linePopupBtn {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(1.08); }
+  100% { transform: translateY(-50%) scale(1); }
+}
+
+
+</style>
+
+<!-- 🔥 ปุ่มใหม่ -->
+<div id="linePopupBtn" onclick="toggleLinePopup()">
+
+ <span> <img src="https://duhuay.com/wp-content/uploads/Add-line.webp" alt="line group" width="50" height="50">
+
+</span>
+  <span>LINE</span>
+  <span>เข้ากลุ่ม</span>
+  <span>ติดตาม</span>
+</div>
+
+<!-- Popup (ของเดิมคุณ) -->
+<div id="linePopupBox">
+  <div class="close-btn" onclick="toggleLinePopup()">✖</div>
+
+  <h3>เข้ากลุ่มติดตาม LINE</h3>
+  <p>
+    แอดกลุ่มติดตาม Line สำหรับแอปของเรา<br>
+    เพื่อติดตามอัปเดตสำคัญหรือข่าวสาร
+  </p>
+
+  <div class="copy-box">
+    <input type="text" value="@471fviet" id="lineID" readonly>
+    <button onclick="copyLineID()">คัดลอก</button>
+  </div>
+
+  <p id="copyMsg" style="color:green; font-size:13px; display:none;">
+    คัดลอกสำเร็จแล้ว!
+  </p>
+</div>
+
+<script>
+function toggleLinePopup(){
+  const box = document.getElementById("linePopupBox");
+  box.style.display = (box.style.display === "block") ? "none" : "block";
+}
+
+function copyLineID(){
+  const input = document.getElementById("lineID");
+  navigator.clipboard.writeText(input.value);
+
+  const msg = document.getElementById("copyMsg");
+  msg.style.display = "block";
+
+  setTimeout(() => {
+    msg.style.display = "none";
+  }, 2000);
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ป้ายประกาศ</title>
+<style>
+    /* ซ่อนป้ายไว้ก่อนเป็นค่าเริ่มต้น เพื่อป้องกันป้ายกระพริบตอนโหลดหน้า */
+    #announcement { display: none; }
+
+    .announcement-banner {
+        background-color: #ffcc00;
+        color: #333;
+        padding: 15px;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .close-btn {
+        margin-left: 20px;
+        color: #333;
+        font-weight: bold;
+        font-size: 30px;
+        cursor: pointer;
+        line-height: 1;
+        padding: 0 10px;
+        user-select: none;
+    }
+
+    body.has-banner { padding-bottom: 70px; }
+</style>
+</head>
+<body>
+
+<div class="announcement-banner" id="announcement">
+    <span> 🇱🇦หวยลาวเพิ่มการออกรางวัล 5วันติด  จันทร์ - ศุกร์ ( จากเดิม3วัน )  🟢 ณ 2 เมษายน เป็นต้นไป อิงอย่างเป็นทางการ จาก สปป.ลาว **ฝากเงินหรือแทงล่วงหน้าเลี่ยงอาการติดขัด </span>
+    <span class="close-btn" onclick="closeBanner()">×</span>
+</div>
+
+<script>
+    const banner = document.getElementById('announcement');
+
+    // 1. เช็คตอนโหลดหน้าว่าเคยปิดไปหรือยัง
+    window.onload = function() {
+        const isClosed = localStorage.getItem('hideBanner-v39');
+        
+        if (isClosed !== 'true') {
+            banner.style.display = 'flex'; // แสดงป้ายถ้ายังไม่เคยปิด
+            document.body.classList.add('has-banner'); // เพิ่มช่องว่างด้านล่าง
+        }
+    };
+
+    // 2. ฟังก์ชันปิดป้ายและบันทึกสถานะ
+    function closeBanner() {
+        banner.style.display = 'none';
+        document.body.classList.remove('has-banner');
+        
+        // บันทึกค่าลงเครื่องผู้ใช้ว่า 'ปิดแล้วนะ'
+        localStorage.setItem('hideBanner-v39', 'true');
+    }
+</script>
+
+</body>
+</html>
 
