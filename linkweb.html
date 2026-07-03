@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy URL Button</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .notification {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1000;
+            right: 30px;
+            top: 30px;
+            font-size: 17px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .notification.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from {top: 0; opacity: 0;}
+            to {top: 30px; opacity: 1;}
+        }
+
+        @keyframes fadeout {
+            from {top: 30px; opacity: 1;}
+            to {top: 0; opacity: 0;}
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-100 to-purple-100 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8 text-center">
+        <p class="text-gray-700 mb-6 leading-relaxed">
+            หากเข้าหน้าเว็บช้า ให้สลับเน็ตหรือการเชื่อมต่อ WiFi > เน็ตมือถือ หรือ เน็ตมือถือ > Wifi และสามารถ ล้างแคชบราวเซอร์หรือประวัติการเยี่ยมชมตั้งแต่ต้นและลองอีกครั้ง
+            สำหรับท่านใดต้องการใช้บนPC หรือ เข้าลิ้งค์ไม่ได้ ให้ใช้การกดคัดลอกข้อความ นำไปวางบน Safari หรือ Chrome ได้เลย ทั้งPc และ Mobile
+        </p>
+        
+        <button onclick="copyURL()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-12a2 2 0 00-2-2h-2M8 5a2 2 0 002 2h4a2 2 0 002-2M8 5a2 2 0 012-2h4a2 2 0 012 2" />
+            </svg>
+            คัดลอกลิงก์
+        </button>
+        
+        <!-- Hidden input to store the URL -->
+        <input type="hidden" id="urlToCopy" value="https://sgspec.github.io/redirect-to-huay-online/newlanding-app.html">
+    </div>
+
+    <div id="notification" class="notification">
+        คัดลอกลิงก์เรียบร้อยแล้ว!
+    </div>
+
+    <script>
+        function copyURL() {
+            // Get the hidden text field with the URL
+            var copyText = document.getElementById("urlToCopy").value;
+            
+            // Copy the text to clipboard
+            navigator.clipboard.writeText(copyText)
+                .then(() => {
+                    // Show notification
+                    var notification = document.getElementById("notification");
+                    notification.className = "notification show";
+                    
+                    // After 3 seconds, hide the notification
+                    setTimeout(function(){
+                        notification.className = notification.className.replace("show", "");
+                    }, 3000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
+                    
+                    // Fallback for older browsers
+                    var tempInput = document.createElement("input");
+                    tempInput.style.position = "absolute";
+                    tempInput.style.left = "-1000px";
+                    tempInput.value = copyText;
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(tempInput);
+                    
+                    // Show notification
+                    var notification = document.getElementById("notification");
+                    notification.className = "notification show";
+                    
+                    // After 3 seconds, hide the notification
+                    setTimeout(function(){
+                        notification.className = notification.className.replace("show", "");
+                    }, 3000);
+                });
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9662d56d615afd8b',t:'MTc1MzY4OTUzMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
